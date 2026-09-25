@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ONLY_VIP_BY_ZARFF</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;color:#eef6ff;background:#030817;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 50% 5%,#233b72 0,#0a1531 24%,#030817 62%);z-index:-5}
+canvas#stars{position:fixed;inset:0;width:100%;height:100%;z-index:-3;pointer-events:none}
+.glow{position:fixed;width:340px;height:340px;border-radius:50%;background:#75aaff33;filter:blur(60px);top:-100px;left:50%;transform:translateX(-50%);z-index:-4}
+.moon{position:fixed;right:7%;top:55px;width:145px;height:145px;border-radius:50%;background:#fff;box-shadow:0 0 25px #fff,0 0 70px #9fc8ff,0 0 140px #477cff88;z-index:-2}
+.moon:after{content:"";position:absolute;width:145px;height:145px;border-radius:50%;background:#07122a;left:48px;top:-12px}
+header{position:sticky;top:0;z-index:20;background:#050d20aa;backdrop-filter:blur(18px);border-bottom:1px solid #ffffff18}
+.nav{max-width:1100px;margin:auto;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-weight:900;letter-spacing:1px}.brand span{color:#77b7ff}.nav button{background:#ffffff0d;color:#fff;border:1px solid #ffffff22;padding:9px 13px;border-radius:12px;cursor:pointer}
+.container{max-width:1050px;margin:auto;padding:35px 16px 100px}.hero{text-align:center;padding:65px 0 35px}.badge{display:inline-block;padding:7px 12px;border:1px solid #8fc5ff44;border-radius:999px;background:#78b5ff10;color:#a9d5ff;font-size:12px}.hero h1{font-size:clamp(34px,8vw,72px);margin:18px 0 8px;text-shadow:0 0 28px #73adff99}.hero p{color:#aebbd2}.card{background:#09142bcc;border:1px solid #ffffff16;border-radius:22px;box-shadow:0 18px 70px #0008,0 0 35px #397cff12;backdrop-filter:blur(16px);padding:22px;margin:18px 0}.login{max-width:520px;margin:auto}.login h2{text-align:center}.inputs{display:grid;gap:10px}.input,select,textarea{width:100%;border:1px solid #ffffff1c;background:#030a18cc;color:#fff;border-radius:13px;padding:13px;outline:none}.input:focus,select:focus,textarea:focus{border-color:#70b4ff88;box-shadow:0 0 0 3px #70b4ff12}.btn{border:0;border-radius:13px;padding:12px 16px;background:linear-gradient(135deg,#4c9bff,#775cff);color:#fff;font-weight:800;cursor:pointer;box-shadow:0 8px 25px #4c83ff33}.btn.alt{background:#ffffff0d;border:1px solid #ffffff1b}.row{display:flex;gap:10px;flex-wrap:wrap}.hidden{display:none!important}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.tab{padding:9px 12px;border-radius:999px;background:#ffffff0a;border:1px solid #ffffff15;cursor:pointer;color:#cdd8ea}.tab.active{background:#6aaaff25;border-color:#6aaaff66;color:#fff}.toolbar{display:grid;grid-template-columns:1fr 180px;gap:10px}.prompt{position:relative;overflow:hidden}.prompt:before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(#66b6ff,#8b68ff)}.prompt-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.author{font-weight:800}.muted{color:#8f9db5;font-size:13px}.status{font-size:11px;padding:6px 9px;border-radius:999px;background:#2f9f6722;color:#77e1a5;border:1px solid #56c98a44}.pending{background:#e4a63b20;color:#ffd477;border-color:#e4a63b44}.banned{background:#e54f5b20;color:#ff9da5;border-color:#e54f5b44}.prompt-body{white-space:pre-wrap;line-height:1.65;margin:16px 0;color:#e5edf9}.note{padding:10px;border-radius:12px;background:#ffffff06;color:#aebbd0;font-size:13px}.meta{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.chip{padding:6px 9px;border-radius:9px;background:#ffffff08;border:1px solid #ffffff12;font-size:12px;color:#bcd4f2}.actions{display:flex;gap:8px;flex-wrap:wrap}.section-title{display:flex;justify-content:space-between;align-items:center}.statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat{padding:16px;border-radius:15px;background:#ffffff07;border:1px solid #ffffff10}.stat b{display:block;font-size:24px;margin-top:5px}.empty{text-align:center;padding:35px;color:#8f9db5}.footer{text-align:center;color:#64738e;font-size:12px;margin-top:45px}
+.toast{position:fixed;right:16px;bottom:16px;z-index:50;background:#101d35;border:1px solid #ffffff20;padding:13px 16px;border-radius:13px;box-shadow:0 12px 35px #0009;display:none}.toast.show{display:block}
+@media(max-width:650px){.moon{width:90px;height:90px;right:3%;top:70px;opacity:.7}.moon:after{width:90px;height:90px;left:30px}.toolbar{grid-template-columns:1fr}.statgrid{grid-template-columns:1fr 1fr}.container{padding-top:20px}.hero{padding-top:45px}}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas><div class="glow"></div><div class="moon"></div>
+<header><div class="nav"><div class="brand">ONLY_<span>VIP</span>_BY_ZARFF</div><button id="logoutBtn" class="hidden" onclick="logout()">Logout</button></div></header>
+
+<main class="container">
+<section class="hero"><span class="badge">✦ PROMPT COMMUNITY ✦</span><h1>ONLY_VIP_BY_ZARFF</h1><p>Tempat berbagi prompt AI dengan sistem approval Owner.</p></section>
+
+<section id="loginCard" class="card login">
+<h2>🔐 Login</h2><p class="muted" style="text-align:center">Masukkan kode akses kamu.</p>
+<div class="inputs"><input id="loginName" class="input" placeholder="Nama / username"><input id="loginPw" class="input" type="password" placeholder="Password"><button class="btn" onclick="login()">MASUK</button></div>
+<p id="loginMsg" class="muted" style="text-align:center"></p>
+</section>
+
+<section id="app" class="hidden">
+<div class="card">
+<div class="section-title"><div><h2 style="margin:0">🔎 Cari Prompt</h2><p class="muted">Cari berdasarkan isi, pembuat, atau kategori AI.</p></div></div>
+<div class="toolbar"><input id="search" class="input" oninput="render()" placeholder="Search prompt / nama / AI..."><select id="cat" onchange="render()"><option>Semua AI</option></select></div>
+<div class="tabs" id="tabs"></div>
+</div>
+
+<section class="card">
+<div class="section-title"><h2>🌟 Prompt Terbaru</h2><span class="muted" id="count"></span></div>
+<div id="promptList"></div>
+</section>
+
+<section id="createCard" class="card">
+<h2>➕ Buat Prompt</h2><p class="muted">Maksimal 2 prompt per hari.</p>
+<div class="inputs">
+<textarea id="promptText" rows="7" placeholder="Isi prompt kamu..."></textarea>
+<textarea id="promptNote" rows="3" placeholder="Catatan user (opsional)..."></textarea>
+<select id="promptCat"></select>
+<button class="btn" onclick="submitPrompt()">KIRIM PROMPT</button>
+</div></section>
+
+<section id="ownerPanel" class="hidden">
+<div class="card"><h2>👑 Owner Dashboard</h2><div class="statgrid">
+<div class="stat">Users<b id="sUsers">0</b></div><div class="stat">Pending<b id="sPending">0</b></div><div class="stat">Aktif<b id="sActive">0</b></div><div class="stat">Banned<b id="sBanned">0</b></div>
+</div></div>
+<div class="card"><div class="section-title"><h2>📥 Semua Prompt</h2><button class="btn alt" onclick="seedDemo()">Tambah Demo</button></div><div id="ownerList"></div></div>
+</section>
+</section>
+<div class="footer">ONLY_VIP_BY_ZARFF • Moonlight Prompt Hub</div>
+</main>
+<div id="toast" class="toast"></div>
+
+<script>
+const PASSWORDS=["76102967","10672910","12093847"];
+const OWNER_PASSWORD="12093847";
+const CATS=["ChatGPT","Claude","Dola","Gemini","DeepSeek","Grok","Meta AI","Copilot","Perplexity","Lainnya"];
+let current=null, filter="Semua AI";
+let prompts=JSON.parse(localStorage.getItem("zarff_prompts")||"[]");
+let users=JSON.parse(localStorage.getItem("zarff_users")||"[]");
+
+function save(){localStorage.setItem("zarff_prompts",JSON.stringify(prompts));localStorage.setItem("zarff_users",JSON.stringify(users))}
+function esc(s){return String(s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function toast(t){let x=document.getElementById("toast");x.textContent=t;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),2200)}
+function setup(){document.getElementById("cat").innerHTML='<option>Semua AI</option>'+CATS.map(x=>`<option>${x}</option>`).join("");document.getElementById("promptCat").innerHTML=CATS.map(x=>`<option>${x}</option>`).join("");renderTabs()}
+function renderTabs(){document.getElementById("tabs").innerHTML=["Semua AI",...CATS].map(x=>`<button class="tab ${filter===x?"active":""}" onclick="setFilter('${x}')">${x}</button>`).join("")}
+function setFilter(x){filter=x;document.getElementById("cat").value=x;renderTabs();render()}
+function login(){
+ let name=document.getElementById("loginName").value.trim()||"Guest", pw=document.getElementById("loginPw").value.trim();
+ if(!PASSWORDS.includes(pw)){document.getElementById("loginMsg").textContent="Password tidak valid.";return}
+ current={name,owner:pw===OWNER_PASSWORD}; users.push({name,at:Date.now()}); save();
+ document.getElementById("loginCard").classList.add("hidden");document.getElementById("app").classList.remove("hidden");document.getElementById("logoutBtn").classList.remove("hidden");
+ if(current.owner){document.getElementById("ownerPanel").classList.remove("hidden");document.getElementById("createCard").classList.add("hidden")}
+ render();toast(current.owner?"Login Owner berhasil 👑":"Login berhasil ✨");
+}
+function logout(){location.reload()}
+function today(){return new Date().toISOString().slice(0,10)}
+function todayCount(){return prompts.filter(p=>p.author===current.name&&p.date===today()).length}
+function submitPrompt(){
+ if(todayCount()>=2){toast("Batas 2 prompt hari ini sudah tercapai.");return}
+ let text=document.getElementById("promptText").value.trim(),note=document.getElementById("promptNote").value.trim(),cat=document.getElementById("promptCat").value;
+ if(!text){toast("Isi prompt belum diisi.");return}
+ prompts.unshift({id:crypto.randomUUID(),author:current.name,text,note,cat,status:"pending",date:today(),copies:0,created:Date.now()});save();
+ document.getElementById("promptText").value="";document.getElementById("promptNote").value="";render();toast("Prompt dikirim dan masuk Pending 🟡");
+}
+function copyPrompt(id){let p=prompts.find(x=>x.id===id);navigator.clipboard?.writeText(p.text);p.copies++;save();render();toast("Prompt berhasil disalin 📋")}
+function approve(id){let p=prompts.find(x=>x.id===id);p.status="approved";save();render();toast("Prompt disetujui 🟢")}
+function ban(id){let p=prompts.find(x=>x.id===id);p.status="banned";save();render();toast("Prompt diban 🔴")}
+function unban(id){let p=prompts.find(x=>x.id===id);p.status="pending";save();render();toast("Prompt dikembalikan ke Pending")}
+function delPrompt(id){prompts=prompts.filter(x=>x.id!==id);save();render();toast("Prompt dihapus")}
+function editPrompt(id){let p=prompts.find(x=>x.id===id);let t=prompt("Edit isi prompt:",p.text);if(t!==null&&t.trim()){p.text=t.trim();save();render()}}
+function render(){
+ let q=(document.getElementById("search")?.value||"").toLowerCase(),c=document.getElementById("cat")?.value||filter;
+ let visible=prompts.filter(p=>p.status==="approved"||current?.owner).filter(p=>(c==="Semua AI"||p.cat===c)&&(!q||(p.text+" "+p.author+" "+p.cat).toLowerCase().includes(q)));
+ document.getElementById("count").textContent=visible.length+" prompt";
+ document.getElementById("promptList").innerHTML=visible.length?visible.map(card).join(""):'<div class="empty">Belum ada prompt yang cocok.</div>';
+ if(current?.owner){document.getElementById("ownerList").innerHTML=prompts.length?prompts.map(ownerCard).join(""):'<div class="empty">Belum ada prompt.</div>';stats()}
+}
+function card(p){
+ let st=p.status==="approved"?'<span class="status">APPROVED</span>':p.status==="pending"?'<span class="status pending">PENDING</span>':'<span class="status banned">BANNED</span>';
+ return `<article class="card prompt"><div class="prompt-head"><div><div class="author">BY ${esc(p.author)}</div><div class="muted">${new Date(p.created).toLocaleString("id-ID")}</div></div>${st}</div><div class="meta"><span class="chip">🤖 ${esc(p.cat)}</span><span class="chip">📋 ${p.copies} copy</span></div><div class="prompt-body">${esc(p.text)}</div>${p.note?`<div class="note">📝 ${esc(p.note)}</div>`:""}<div class="actions" style="margin-top:14px">${p.status==="approved"?`<button class="btn" onclick="copyPrompt('${p.id}')">📋 Salin Prompt</button>`:""}</div></article>`
+}
+function ownerCard(p){
+ return `<article class="card prompt"><div class="prompt-head"><div><b>BY ${esc(p.author)}</b><div class="muted">${esc(p.cat)} • ${new Date(p.created).toLocaleString("id-ID")}</div></div>${p.status==="approved"?'<span class="status">APPROVED</span>':p.status==="pending"?'<span class="status pending">PENDING</span>':'<span class="status banned">BANNED</span>'}</div><div class="prompt-body">${esc(p.text)}</div>${p.note?`<div class="note">📝 ${esc(p.note)}</div>`:""}<div class="actions" style="margin-top:12px">${p.status!=="approved"?`<button class="btn" onclick="approve('${p.id}')">✓ APPROVE</button>`:""}${p.status!=="banned"?`<button class="btn alt" onclick="ban('${p.id}')">🚫 BAN</button>`:`<button class="btn alt" onclick="unban('${p.id}')">↩ UNBAN</button>`}<button class="btn alt" onclick="editPrompt('${p.id}')">✏️ EDIT</button><button class="btn alt" onclick="delPrompt('${p.id}')">🗑 HAPUS</button></div></article>`
+}
+function stats(){document.getElementById("sUsers").textContent=new Set(users.map(x=>x.name)).size;document.getElementById("sPending").textContent=prompts.filter(p=>p.status==="pending").length;document.getElementById("sActive").textContent=prompts.filter(p=>p.status==="approved").length;document.getElementById("sBanned").textContent=prompts.filter(p=>p.status==="banned").length}
+function seedDemo(){prompts.unshift({id:crypto.randomUUID(),author:"ZARFF",text:"Buatkan ide kreatif untuk aplikasi AI dengan UI modern dan mudah digunakan di HP.",note:"Demo prompt.",cat:"ChatGPT",status:"approved",date:today(),copies:0,created:Date.now()});save();render();toast("Demo ditambahkan")}
+setup();
+
+/* Animated stars */
+const cv=document.getElementById("stars"),ctx=cv.getContext("2d");let W,H,stars=[];
+function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight;stars=Array.from({length:Math.min(150,Math.floor(W*H/8000))},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.7+.2,v:Math.random()*.45+.08,a:Math.random()}))}
+function animate(){ctx.clearRect(0,0,W,H);for(const s of stars){s.y+=s.v;s.x+=Math.sin(s.y*.006)*.12;s.a+=.015;if(s.y>H+5)s.y=-5;let alpha=.3+.45*(Math.sin(s.a)+1)/2;ctx.globalAlpha=alpha;ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill()}requestAnimationFrame(animate)}
+addEventListener("resize",resize);resize();animate();
+</script>
+</body>
+</html>
